@@ -1,7 +1,7 @@
 /* Font-face declaration remains unchanged */
 @font-face {
     font-family: linjapona;
-    src: url("/fonts/linja-pona-4.9.otf") format('opentype');
+    src: url("./fonts/linja-pona-4.9.otf") format('opentype');
     font-weight: normal;
     font-style: normal;
 }
