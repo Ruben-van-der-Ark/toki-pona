@@ -20,7 +20,7 @@ function processSpecialSyntax(text) {
 // Event listener to update h2 content based on textarea input
 inputField.addEventListener('input', function() {
     let newValue = inputField.value.trim();  // Trim any leading/trailing whitespace
-
+    newValue = newValue.toLowerCase();
     // Handle line breaks and default values for the linjapona element
     if (newValue === '') {
         linjaponaElement.innerHTML = defaultLinjaponaText.replace(/\n/g, '<br>');  // No extra new lines
