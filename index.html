@@ -23,6 +23,25 @@
     <!-- Input field for updating content -->
     <textarea id="userInput" placeholder="o toki pona..." rows="4"></textarea>
 
+    <div class="info">
+        <h3>Text Formatting Information:</h3>
+        You can use two types of formatting:
+        First, you can use a dash to make the two glyphs in sitelen pona connect.
+        The latin version will automatically replace a dash with a space.<br>
+        Example: <code>toki-pona</code> becomes:<br>
+        <div class="linjaponaexample">toki-pona</div>
+        <div class="latinalphabetexample">toki pona</div>
+        (Keep in mind that the version of the font I'm using automatically generates these combined glyphs,
+        so they might not always look good.)<br/>
+        <br/>
+        Second, you can use the standard linja pona syntax to spell out foreign words.<br/>
+        Example: <code>toki [_ijo_ni_li_ike]</code> becomes:<br/>
+        <!--        this one should use the same formatting as the linjapona div-->
+        <div class="linjaponaexample">toki [_ijo_ni_li_ike]</div>
+        <!--        this one should use the same format as the latinalphabet div-->
+        <div class="latinalphabetexample">toki Inli</div>
+    </div>
+
     <footer>
         This website uses the font <a href="https://musilili.net/linja-pona/">Linja Pona</a> (version 4.9)
     </footer>
