@@ -75,7 +75,7 @@ body {
 .container {
     width: 90%;
     max-width: 800px;
-    margin: 1% auto auto;
+    margin: 1% auto;
     text-align: center;
     padding: 20px;
     background-color: white;
