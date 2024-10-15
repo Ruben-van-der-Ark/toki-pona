@@ -25,13 +25,14 @@
 
     <div class="info">
         <h3>Text Formatting Information:</h3>
-        You can use two types of formatting:
-        First, you can use a dash to make the two glyphs in sitelen pona connect.
-        The latin version will automatically replace a dash with a space.<br>
+        You can use two types of formatting:<br/>
+        First, you can use a dash to make the two glyphs in sitelen pona connect.<br/>
+        The latin alphabet version will automatically replace a dash with a space.<br>
         Example: <code>toki-pona</code> becomes:<br>
         <div class="linjaponaexample">toki-pona</div>
         <div class="latinalphabetexample">toki pona</div>
-        (Keep in mind that the version of the font I'm using automatically generates these combined glyphs,
+        (Keep in mind that the version of the font I'm using (linja pona version 4.9)
+        automatically generates these combined glyphs,
         so they might not always look good.)<br/>
         <br/>
         Second, you can use the standard linja pona syntax to spell out foreign words.<br/>
@@ -39,11 +40,19 @@
         <!--        this one should use the same formatting as the linjapona div-->
         <div class="linjaponaexample">toki [_ijo_ni_li_ike]</div>
         <!--        this one should use the same format as the latinalphabet div-->
-        <div class="latinalphabetexample">toki Inli</div>
+        <div class="latinalphabetexample">toki Inli</div><br/>
+        Lastly, as is standard in toki pona, every letter in the latin alphabet version is automatically converted to
+        lowercase (unless you use the format specified above).<br/>
+        Example: <code>tOKI ni lI JAKI MutE</code> becomes:<br/>
+        <div class="linjaponaexample">toki ni li jaki mute</div>
+        <div class="latinalphabetexample">toki ni li jaki mute</div><br/>
+
+
+
     </div>
 
     <footer>
-        This website uses the font <a href="https://musilili.net/linja-pona/">Linja Pona</a> (version 4.9)
+        This website uses the font <a href="https://musilili.net/linja-pona/">linja pona</a> (version 4.9)
     </footer>
 
     <!-- JavaScript to update all elements with the sitelenpona class -->
