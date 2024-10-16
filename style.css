@@ -6,61 +6,6 @@
     font-style: normal;
 }
 
-/* Styling for the linjapona text */
-.linjapona h2 {
-    font-family: linjapona, serif;
-    font-size: 2rem; /* Increase size for readability */
-    text-align: center; /* Center-align the linjapona text */
-    margin-bottom: 20px;
-}
-
-/* Styling for the latin-alphabet text */
-.latinalphabet h2 {
-    font-family: 'Arial', sans-serif; /* General font for sitelenpona class */
-    font-size: 2rem;
-    color: #333; /* Dark text color for readability */
-    margin: 20px 0;
-    text-align: center; /* Center the text */
-}
-
-/* Styling for the textarea */
-textarea#userInput {
-    display: block;
-    width: 80%;
-    height: auto;
-    min-height: 150px; /* Initial height */
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease;
-    resize: vertical; /* Allow vertical resizing */
-}
-
-textarea#userInput:focus {
-    border-color: #007bff; /* Change border color when focused */
-}
-
-/* Styling for the footer */
-footer {
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
-    margin-top: 40px;
-}
-
-footer a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
 /* Basic body styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -86,34 +31,57 @@ body {
     align-items: center;
 }
 
+/* Common styling for linjapona and latinalphabet divs */
 div.linjapona, div.latinalphabet {
-    overflow: hidden; /* Prevent overflow artifacts */
     margin: 20px 0;
     padding: 10px;
     border-radius: 5px;
     width: 100%;
     text-align: center;
-
-    /* Ensure long words break to a new line */
-    word-wrap: break-word;
-    overflow-wrap: break-word; /* Ensures the text wraps */
-    word-break: break-all; /* Break words if they are too long */
 }
 
 
+/* Styling for h4 in linjapona and latinalphabet */
+h4.linjapona {
+    font-family: linjapona, serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
 
-
+h4.latinalphabet {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
 
 /* Differentiating the sections */
 div.linjapona {
     background-color: #e6f7ff;
 }
 
-
-
-
-.latinalphabet {
+div.latinalphabet {
     background-color: #e2ffe8; /* Light green background */
+}
+
+/* Styling for the textarea */
+textarea#userInput {
+    display: block;
+    width: 80%;
+    height: auto;
+    min-height: 150px; /* Initial height */
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+textarea#userInput:focus {
+    border-color: #007bff; /* Change border color when focused */
 }
 
 /* Styling for the information section */
@@ -137,19 +105,6 @@ div.linjapona {
     font-size: 1rem;
 }
 
-/* Example styling for Linjapona formatting */
-.linjaponaexample {
-    font-family: linjapona, serif;
-    background-color: #e6f7ff; /* Light blue background to match linjapona */
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 5px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-all;
-    text-align: center;
-}
-
 /* Example styling for Latin alphabet formatting */
 .latinalphabetexample {
     font-family: 'Arial', sans-serif;
@@ -158,8 +113,33 @@ div.linjapona {
     border-radius: 5px;
     margin-top: 5px;
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-all;
     text-align: center;
 }
 
+/* Example styling for Linjapona formatting */
+.linjaponaexample {
+    font-family: linjapona, serif;
+    background-color: #e6f7ff; /* Light blue background to match linjapona */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Styling for the footer */
+footer {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

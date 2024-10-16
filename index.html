@@ -9,15 +9,15 @@
 <body>
 <div class="container">
 
-    <div class="linjapona">
-        <h2 class="sitelenpona linjapona">
-            o toki pona...
-        </h2>
-    </div>
     <div class="latinalphabet">
-        <h2 class="sitelenpona">
+        <h4 class="latinalphabet">
             o toki pona...
-        </h2>
+        </h4>
+    </div>
+    <div class="linjapona">
+        <h4 class="linjapona">
+            o toki pona...
+        </h4>
     </div>
 
     <!-- Input field for updating content -->
@@ -29,26 +29,27 @@
         First, you can use a dash to make the two glyphs in sitelen pona connect.<br/>
         The latin alphabet version will automatically replace a dash with a space.<br>
         Example: <code>toki-pona</code> becomes:<br>
-        <div class="linjaponaexample">toki-pona</div>
         <div class="latinalphabetexample">toki pona</div>
+        <div class="linjaponaexample">toki-pona</div>
         (Keep in mind that the version of the font I'm using (linja pona version 4.9)
         automatically generates these combined glyphs,
         so they might not always look good.)<br/>
         <br/>
-        Second, you can use the standard linja pona syntax to spell out foreign words.<br/>
+        Second, the word pi can be followed by up to three dashes to indicate how many of the following words.
+        are "inside" the pi<br/>
+        Example: <code>tomo pi--kama sona</code> becomes:<br/>
+        <div class="latinalphabetexample">tomo pi kama sona</div>
+        <div class="linjaponaexample">tomo pi--kama sona</div><br/>
+        Third, you can use a syntax where you place words in [square brackets] and place an _underscore in
+        front of each word to spell out foreign words with the first letter of each word.<br/>
         Example: <code>toki [_ijo_ni_li_ike]</code> becomes:<br/>
-        <!--        this one should use the same formatting as the linjapona div-->
-        <div class="linjaponaexample">toki [_ijo_ni_li_ike]</div>
-        <!--        this one should use the same format as the latinalphabet div-->
-        <div class="latinalphabetexample">toki Inli</div><br/>
+        <div class="latinalphabetexample">toki Inli</div>
+        <div class="linjaponaexample">toki [_ijo_ni_li_ike]</div><br/>
         Lastly, as is standard in toki pona, every letter in the latin alphabet version is automatically converted to
         lowercase (unless you use the format specified above).<br/>
         Example: <code>tOKI ni lI JAKI MutE</code> becomes:<br/>
+        <div class="latinalphabetexample">toki ni li jaki mute</div>
         <div class="linjaponaexample">toki ni li jaki mute</div>
-        <div class="latinalphabetexample">toki ni li jaki mute</div><br/>
-
-
-
     </div>
 
     <footer>

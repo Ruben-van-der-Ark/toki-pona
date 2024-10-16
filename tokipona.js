@@ -1,6 +1,6 @@
 const inputField = document.getElementById('userInput');
-const linjaponaElement = document.querySelector('.linjapona h2');
-const latinAlphabetElement = document.querySelector('.latinalphabet h2');
+const linjaponaElement = document.querySelector('.linjapona h4');
+const latinAlphabetElement = document.querySelector('.latinalphabet h4');
 
 // Store default values for both sitelenpona elements
 const defaultLinjaponaText = linjaponaElement.textContent.trim();  // Trim whitespace
@@ -20,21 +20,21 @@ function processSpecialSyntax(text) {
 // Event listener to update h2 content based on textarea input
 inputField.addEventListener('input', function() {
     let newValue = inputField.value.trim();  // Trim any leading/trailing whitespace
-    newValue = newValue.toLowerCase();
-    // Handle line breaks and default values for the linjapona element
+    newValue = newValue.toLowerCase();  // Convert to lowercase
+
+    // Handle linjapona element (with line breaks) as user input
     if (newValue === '') {
-        linjaponaElement.innerHTML = defaultLinjaponaText.replace(/\n/g, '<br>');  // No extra new lines
+        linjaponaElement.innerHTML = defaultLinjaponaText.replace(/\n/g, '<br>');  // Reset to default with breaks
     } else {
-        linjaponaElement.innerHTML = newValue.replace(/\n/g, '<br>');
+        linjaponaElement.innerHTML = newValue.replace(/\n/g, '<br>');  // Replace explicit line breaks with <br>
     }
 
-    // Handle special syntax, line breaks, and default values for the latin-alphabet element
+    // Handle special syntax for latin alphabet element (without breaking words inappropriately)
     if (newValue === '') {
-        latinAlphabetElement.innerHTML = defaultLatinAlphabetText.replace(/\n/g, '<br>');  // No extra new lines
+        latinAlphabetElement.innerHTML = defaultLatinAlphabetText.replace(/\n/g, '<br>');  // Reset to default text
     } else {
-        // Apply custom syntax transformation for the latin-alphabet h2
-        let processedValue = newValue.replace(/-/g, ' ');  // Remove dashes
-        processedValue = processSpecialSyntax(processedValue);  // Replace custom syntax
-        latinAlphabetElement.innerHTML = processedValue.replace(/\n/g, '<br>');  // Add line breaks
+        let processedValue = newValue.replace(/-/g, ' ');  // Replace dashes with spaces for Latin alphabet
+        processedValue = processSpecialSyntax(processedValue);  // Apply special syntax transformation
+        latinAlphabetElement.innerHTML = processedValue;  // No need for <br>, allow natural line wrapping
     }
 });
