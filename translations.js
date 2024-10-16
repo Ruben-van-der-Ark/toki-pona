@@ -110,7 +110,7 @@ function translateSpecialSyntax(word) {
 function translateText() {
     let inputText = document.getElementById('userInput').value.trim();  // Get the value from the textarea
     if (!inputText) {
-        inputText = 'o toki pona'
+        inputText = 'o toki-pona'
     }
       // Translate the text using the approximateTranslation function
     document.getElementById('translatedText').innerText = approximateTranslation(inputText);  // Update the #translatedText div with the translated text
