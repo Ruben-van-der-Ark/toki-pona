@@ -50,7 +50,7 @@ const tokiPonaDictionary = {
   "linja": { 'common': "line", 'noun': "line", 'verb': null, 'adj': null },
   "lipu": { 'common': "paper", 'noun': "paper", 'verb': null, 'adj': null },
   "loje": { 'common': "red", 'noun': null, 'verb': null, 'adj': "red" },
-  "lon": { 'common': "at", 'noun': null, 'verb': "exist", 'adj': "real" },
+  "lon": { 'common': "at", 'noun': null, 'verb': "exist", 'adj': null },
   "luka": { 'common': "hand", 'noun': "hand", 'verb': null, 'adj': null },
   "lukin": { 'common': "see", 'noun': "sight", 'verb': "see", 'adj': null },
   "lupa": { 'common': "hole", 'noun': "hole", 'verb': null, 'adj': null },

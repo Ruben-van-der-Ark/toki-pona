@@ -113,5 +113,6 @@ function translateText() {
         inputText = 'o toki-pona'
     }
       // Translate the text using the approximateTranslation function
-    document.getElementById('translatedText').innerText = approximateTranslation(inputText);  // Update the #translatedText div with the translated text
+    const translation = approximateTranslation(inputText);
+    document.getElementById('translatedText').innerHTML = translation.replace(/\n/g, '<br>');
 }

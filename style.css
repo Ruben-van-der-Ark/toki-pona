@@ -84,7 +84,7 @@ textarea#userInput:focus {
 }
 
 /* Styling for the translation output div */
-#translatedText {
+div.translatedText {
     margin-top: 20px;
     padding: 15px;
     background-color: #fff0f0; /* Light blue background */
