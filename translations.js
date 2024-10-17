@@ -2,21 +2,41 @@ function approximateTranslation(text) {
     const words = text.split(/\s+/); // Split the input text into words
     const translations = [];
     let hasLi = words.includes('li');
-    let hasO = words.includes('o');
-    let firstWord = words[0];
+    let hasO = words[0] === 'o'; // Check if the sentence starts with "o"
     let i = 0;
 
-    // First, we check for "li" or "o" sentence structures
-    if (hasLi || hasO) {
+    // Handle the "o [verb] [*adjectives] (e [noun] [*adjectives])" pattern
+    if (hasO && words.length > 1) {
+        translations.push('go'); // Translate "o" as "Go"
+        i++; // Skip the first word ("o")
         while (i < words.length) {
             let word = words[i];
             let translation = '';
 
-            // Handle the first noun and its adjectives before "li" or "o"
+            if (word === 'e') {
+                translations.push('e'); // Keep "e" untranslated
+            } else if (words[i - 1] === 'e') {
+                translation = translateWord(word, 'noun'); // The word after "e" is a noun
+            } else if (i === 1) {
+                translation = translateWord(word, 'verb'); // The word after "o" is a verb
+            } else {
+                translation = translateWord(word, 'adj'); // The rest are adjectives
+            }
+
+            translations.push(translation);
+            i++;
+        }
+    }
+    // Handle other patterns like "li" or general translation
+    else if (hasLi) {
+        while (i < words.length) {
+            let word = words[i];
+            let translation = '';
+
             if (i === 0) {
                 translation = translateWord(word, 'noun');  // First word is the subject (noun)
-            } else if (words[i - 1] === 'li' || words[i - 1] === 'o') {
-                translation = translateWord(word, 'verb');  // The word following "li" or "o" is the verb
+            } else if (words[i - 1] === 'li') {
+                translation = translateWord(word, 'verb');  // The word following "li" is the verb
             } else if (word === 'e') {
                 translation = 'e';  // e is a particle, don't translate
             } else if (words[i - 1] === 'e') {
@@ -29,40 +49,15 @@ function approximateTranslation(text) {
             i++;
         }
     }
-    // Handle "mi" or "sina" followed by a verb if there's no "li"
-    else if ((firstWord === 'mi' || firstWord === 'sina') && !hasLi) {
-        while (i < words.length) {
-            let word = words[i];
-            let translation = '';
-
-            if (i === 0) {
-                translation = translateWord(word, 'noun');  // mi/sina treated as subject (noun)
-            } else if (word === 'e') {
-                translation = 'e';  // e is a particle, don't translate
-            } else if (i === 1) {
-                translation = translateWord(word, 'verb');  // The second word is the verb
-            } else if (words[i - 1] === 'e') {
-                translation = translateWord(word, 'noun');  // After "e" comes the object noun
-            } else {
-                translation = translateWord(word, 'adj');  // Remaining words are adjectives
-            }
-
-            translations.push(translation);
-            i++;
-        }
-    }
-    // Fallback: [noun] [*adjectives] structure
+    // Fallback for other sentence structures
     else {
         while (i < words.length) {
             let word = words[i];
             let translation = '';
 
-            // First word is a noun
             if (i === 0) {
                 translation = translateWord(word, 'noun');
-            }
-            // Remaining words are adjectives
-            else {
+            } else {
                 translation = translateWord(word, 'adj');
             }
 
@@ -108,11 +103,34 @@ function translateSpecialSyntax(word) {
 }
 
 function translateText() {
-    let inputText = document.getElementById('userInput').value.trim();  // Get the value from the textarea
-    if (!inputText) {
-        inputText = 'o toki-pona'
+    // Get the value from the textarea and split using a regex that includes 'la', '?', '!', and '.'
+    let inputText = document.getElementById('userInput').value.trim().split(/( la |\?|!|\.)/);
+
+    if (!inputText || inputText.length === 0) {
+        inputText = ['o toki-pona'];  // Set to default text if empty
     }
-      // Translate the text using the approximateTranslation function
-    const translation = approximateTranslation(inputText);
-    document.getElementById('translatedText').innerHTML = translation.replace(/\n/g, '<br>');
+
+    let translation = '';
+    // Iterate over the inputText array and translate each part
+    for (let i = 0; i < inputText.length; i++) {
+        if (inputText[i].trim()) {
+            // Check if it's punctuation
+            if (inputText[i].match(/^[?.!]$/)) {
+                // If it's punctuation, append it with a space after
+                translation += inputText[i] + ' ';
+            }
+            // Check if it's "la" to prefix and suffix with spaces
+            else if (inputText[i] === ' la ') {
+                translation += ' la ';
+            }
+            // Otherwise, translate the text
+            else {
+                translation += approximateTranslation(inputText[i].trim());
+            }
+        }
+    }
+
+    // Replace any newline characters with <br> for correct display, and trim extra spaces
+    document.getElementById('translatedText').innerHTML =
+        translation.replace(/\n/g, '<br>').trim();
 }
