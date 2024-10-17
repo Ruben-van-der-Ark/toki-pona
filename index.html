@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Latin alphabet to sitelen pona</title>
+    <title>Latin alphabet to sitelen pona + translations</title>
     <link rel="stylesheet" href="style.css">
+    <script src="tokipona.js"></script>
+    <script src="dictionary.js"></script>
+    <script src="translations.js"></script>
 </head>
 <body>
 <div class="container">
-
     <div class="latinalphabet">
         <h4 class="latinalphabet">
             o toki pona...
         </h4>
     </div>
+
     <div class="linjapona">
         <h4 class="linjapona">
-            o toki pona...
+            o toki-pona...
         </h4>
     </div>
 
     <!-- Input field for updating content -->
-    <textarea id="userInput" placeholder="o toki pona..." rows="4"></textarea>
+    <label for="userInput"></label>
+    <textarea id="userInput" placeholder="o toki-pona..." oninput="translateText(); displayTokiPona()" rows="4"></textarea>
+    <div class="translatedText"><p id="translatedText">hey speak Toki Pona</p></div>
 
     <div class="info">
         <h3>Text Formatting Information:</h3>
         You can use a few types of formatting:<br/>
+
         First, you can use a dash to make the two glyphs in sitelen pona connect.<br/>
         The latin alphabet version will automatically replace a dash with a space.<br>
         Example: <code>toki-pona</code> becomes:<br>
@@ -35,16 +41,19 @@
         automatically generates these combined glyphs,
         so they might not always look good.)<br/>
         <br/>
+
         Second, the word pi can be followed by up to three dashes to indicate how many of the following words.
         are "inside" the pi<br/>
         Example: <code>tomo pi--kama sona</code> becomes:<br/>
         <div class="latinalphabetexample">tomo pi kama sona</div>
         <div class="linjaponaexample">tomo pi--kama sona</div><br/>
+
         Third, you can use a syntax where you place words in [square brackets] and place an _underscore in
         front of each word to spell out foreign words with the first letter of each word.<br/>
         Example: <code>toki [_ijo_ni_li_ike]</code> becomes:<br/>
         <div class="latinalphabetexample">toki Inli</div>
         <div class="linjaponaexample">toki [_ijo_ni_li_ike]</div><br/>
+
         Lastly, as is standard in toki pona, every letter in the latin alphabet version is automatically converted to
         lowercase (unless you use the format specified above).<br/>
         Example: <code>tOKI ni lI JAKI MutE</code> becomes:<br/>
@@ -57,7 +66,6 @@
     </footer>
 
     <!-- JavaScript to update all elements with the sitelenpona class -->
-    <script src="tokipona.js"></script>
 </div>
 </body>
 </html>

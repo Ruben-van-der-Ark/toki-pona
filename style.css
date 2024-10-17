@@ -40,7 +40,6 @@ div.linjapona, div.latinalphabet {
     text-align: center;
 }
 
-
 /* Styling for h4 in linjapona and latinalphabet */
 h4.linjapona {
     font-family: linjapona, serif;
@@ -82,6 +81,18 @@ textarea#userInput {
 
 textarea#userInput:focus {
     border-color: #007bff; /* Change border color when focused */
+}
+
+/* Styling for the translation output div */
+div.translatedText {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff0f0; /* Light blue background */
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: #333; /* Dark text color */
+    width: 80%;
+    text-align: center;
 }
 
 /* Styling for the information section */
