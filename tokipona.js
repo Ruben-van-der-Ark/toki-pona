@@ -20,14 +20,14 @@ function displayTokiPona() {
 
     // Handle linjapona element (with line breaks) as user input
     if (newValue === '') {
-        linjaponaElement.innerHTML = 'o toki pona'.replace(/\n/g, '<br>');  // Reset to default with breaks
+        linjaponaElement.innerHTML = 'o toki-pona...'.replace(/\n/g, '<br>');  // Reset to default with breaks
     } else {
         linjaponaElement.innerHTML = newValue.replace(/\n/g, '<br>');  // Replace explicit line breaks with <br>
     }
 
     // Handle special syntax for latin alphabet element (without breaking words inappropriately)
     if (newValue === '') {
-        latinAlphabetElement.innerHTML = 'o toki pona'.replace(/\n/g, '<br>');  // Reset to default text
+        latinAlphabetElement.innerHTML = 'o toki pona...'.replace(/\n/g, '<br>');  // Reset to default text
     } else {
         let processedValue = newValue.replace(/-/g, ' ');  // Replace dashes with spaces for Latin alphabet
         processedValue = processSpecialSyntax(processedValue);  // Apply special syntax transformation

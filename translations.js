@@ -104,28 +104,30 @@ function translateSpecialSyntax(word) {
 
 function translateText() {
     // Get the value from the textarea and split using a regex that includes 'la', '?', '!', and '.'
-    let inputText = document.getElementById('userInput').value.trim().split(/( la |\?|!|\.)/);
+    let inputText = document.getElementById('userInput').value.trim();
 
+    let translation
     if (!inputText || inputText.length === 0) {
-        inputText = ['o toki-pona'];  // Set to default text if empty
-    }
-
-    let translation = '';
-    // Iterate over the inputText array and translate each part
-    for (let i = 0; i < inputText.length; i++) {
-        if (inputText[i].trim()) {
-            // Check if it's punctuation
-            if (inputText[i].match(/^[?.!]$/)) {
-                // If it's punctuation, append it with a space after
-                translation += inputText[i] + ' ';
-            }
-            // Check if it's "la" to prefix and suffix with spaces
-            else if (inputText[i] === ' la ') {
-                translation += ' la ';
-            }
-            // Otherwise, translate the text
-            else {
-                translation += approximateTranslation(inputText[i].trim());
+        translation = 'go speak Toki Pona...'
+    } else {
+        inputText = inputText.split(/( la |\?|!|\.)/);
+        translation = '';
+        // Iterate over the inputText array and translate each part
+        for (let i = 0; i < inputText.length; i++) {
+            if (inputText[i].trim()) {
+                // Check if it's punctuation
+                if (inputText[i].match(/^[?.!]$/)) {
+                    // If it's punctuation, append it with a space after
+                    translation += inputText[i] + ' ';
+                }
+                // Check if it's "la" to prefix and suffix with spaces
+                else if (inputText[i] === ' la ') {
+                    translation += ' la ';
+                }
+                // Otherwise, translate the text
+                else {
+                    translation += approximateTranslation(inputText[i].trim());
+                }
             }
         }
     }
