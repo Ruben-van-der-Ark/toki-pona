@@ -104,12 +104,12 @@ function translateSpecialSyntax(word) {
 
 function translateText() {
     // Get the value from the textarea and split using a regex that includes 'la', '?', '!', and '.'
-    let inputText = document.getElementById('userInput').value.trim().split(/( la |\?|!|\.)/);
+    let inputText = document.getElementById('userInput').value.trim();
 
     if (!inputText || inputText.length === 0) {
-        inputText = ['o toki-pona'];  // Set to default text if empty
+        inputText = 'o toki-pona';  // Set to default text if empty
     }
-
+    inputText = inputText.split(/( la |\?|!|\.)/);
     let translation = '';
     // Iterate over the inputText array and translate each part
     for (let i = 0; i < inputText.length; i++) {
